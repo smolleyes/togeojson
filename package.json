@@ -37,9 +37,9 @@
   },
   "license": "BSD-2-Clause",
   "dependencies": {
-    "xmldom": "~0.1.19",
     "concat-stream": "~1.5.1",
-    "minimist": "1.2.0"
+    "minimist": "1.2.0",
+    "xmlserializer": "^0.6.1"
   },
   "keywords": [
     "kml",
