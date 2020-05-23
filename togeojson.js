@@ -80,16 +80,7 @@ var toGeoJSON = (function() {
         };
     }
 
-
-    // if (typeof XMLSerializer !== 'undefined') {
-    //     /* istanbul ignore next */
-    //     serializer = new XMLSerializer();
-    // // only require xmldom in a node environment
-    // } else if (typeof exports === 'object' && typeof process === 'object' && !process.browser) {
-    //     serializer = new XMLParser();
-    // }
     function xml2str(str) {
-        console.log(str)
         // IE9 will create a new XMLSerializer but it'll crash immediately.
         // This line is ignored because we don't run coverage tests in IE9
         /* istanbul ignore next */
@@ -99,7 +90,6 @@ var toGeoJSON = (function() {
 
     var t = {
         kml: function(doc) {
-            console.log(doc)
             var gj = fc(),
                 // styleindex keeps track of hashed styles in order to match features
                 styleIndex = {}, styleByHash = {},
@@ -112,8 +102,6 @@ var toGeoJSON = (function() {
                 placemarks = get(doc, 'Placemark'),
                 styles = get(doc, 'Style'),
                 styleMaps = get(doc, 'StyleMap');
-
-                console.log(gj)
 
             for (var k = 0; k < styles.length; k++) {
                 var hash = okhash(xml2str(styles[k])).toString(16);
